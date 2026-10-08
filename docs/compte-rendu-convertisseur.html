@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Compte rendu - Currency Converter</title>
+<style>
+  @page { size: A4; margin: 18mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #17242a; font: 11pt/1.45 Arial, sans-serif; }
+  h1 { margin: 0 0 5mm; color: #1ba6c9; font-size: 28pt; }
+  h2 { margin: 8mm 0 3mm; color: #1ba6c9; font-size: 17pt; }
+  h3 { margin: 5mm 0 2mm; font-size: 12pt; }
+  p { margin: 0 0 4mm; }
+  .cover { min-height: 245mm; display: flex; flex-direction: column; justify-content: center; }
+  .subtitle { color: #666; font-size: 15pt; }
+  .meta { margin-top: 12mm; padding: 5mm; border-left: 4px solid #f0727a; background: #eef7fb; }
+  .page-break { page-break-before: always; }
+  .screens { display: flex; gap: 7mm; align-items: flex-start; }
+  figure { margin: 0; flex: 1; }
+  figure img { width: 100%; border: 1px solid #d5d5d5; }
+  figcaption { margin-top: 2mm; color: #666; font-size: 9pt; }
+  code { padding: 1px 3px; background: #eef2f3; }
+  .formula { margin: 5mm 0; padding: 4mm; background: #eef7fb; text-align: center; font-size: 14pt; }
+  ul { margin-top: 2mm; }
+  li { margin-bottom: 2mm; }
+</style>
+</head>
+<body>
+  <section class="cover">
+    <h1>Currency Converter</h1>
+    <p class="subtitle">Compte rendu du projet Vue.js</p>
+    <div class="meta">
+      <p><strong>Projet :</strong> convertisseur de devises</p>
+      <p><strong>Technologies :</strong> Vue 3, Composition API, TypeScript et Vite</p>
+      <p><strong>Livrable :</strong> application responsive avec clavier numérique et fonctionnalités bonus</p>
+    </div>
+    <h2>Objectif</h2>
+    <p>Dans ce projet, j'ai réalisé une petite application qui permet de saisir un montant, de choisir deux devises et d'obtenir directement le résultat. J'ai essayé de rester proche de la capture du sujet avec une carte simple, une zone bleu pâle et un clavier numérique.</p>
+  </section>
+
+  <section class="page-break">
+    <h2>1. Choix d'interface</h2>
+    <p>J'ai choisi une structure compacte pour ressembler à la maquette. La partie du haut contient les deux listes, le montant, le résultat et le bouton <code>CONVERTIR</code>. En dessous, j'ai placé le clavier dans l'ordre demandé : 7, 8, 9, puis 4, 5, 6, puis 1, 2, 3, et enfin C, 0, .</p>
+    <ul>
+      <li>Le bleu pâle met en évidence la zone de saisie sans réduire la lisibilité.</li>
+      <li>Le turquoise identifie les touches numériques et le rouge distingue l'effacement.</li>
+      <li>Les sorties de montant utilisent une grande taille de texte pour faciliter la lecture.</li>
+      <li>La mise en page utilise des dimensions relatives pour rester utilisable sur un écran étroit.</li>
+    </ul>
+    <div class="screens">
+      <figure><img src="capture-interface.png"><figcaption>Interface initiale.</figcaption></figure>
+      <figure><img src="capture-conversion.png"><figcaption>Exemple après saisie de 120 USD.</figcaption></figure>
+    </div>
+
+    <h2>2. Organisation du code</h2>
+    <p>J'ai gardé <code>App.vue</code> très simple : il affiche le composant <code>CurrencyConverter.vue</code>. Toute la logique de l'interface est dans ce composant. J'ai mis les devises et les taux dans <code>src/data/taux.ts</code> pour pouvoir les retrouver facilement et avoir des taux de secours.</p>
+  </section>
+
+  <section class="page-break">
+    <h2>3. Logique de conversion</h2>
+    <p>Pour faire le calcul, j'utilise des taux exprimés par rapport à l'euro. La formule utilisée est la suivante :</p>
+    <div class="formula">montant converti = montant × taux cible ÷ taux source</div>
+    <p>Par exemple, avec les valeurs du sujet, 120 USD donnent 102,56 EUR. Grâce à la réactivité de Vue, le résultat se met aussi à jour quand je change le montant ou une devise.</p>
+    <h3>Fonctionnalités bonus</h3>
+    <ul>
+      <li>La conversion est automatique pendant la saisie et après une modification de devise.</li>
+      <li>L'application tente de récupérer les taux depuis l'API Frankfurter au démarrage.</li>
+      <li>Si le réseau ou l'API ne répond pas, les taux fixes du fichier de données restent actifs.</li>
+      <li>Le clavier physique accepte les chiffres, le point, Retour arrière, Échap, C et Entrée.</li>
+    </ul>
+
+    <h2>4. Difficultés rencontrées et solutions</h2>
+    <p>La principale difficulté a été de reproduire une interface assez petite tout en gardant des boutons faciles à utiliser. J'ai donc séparé le composant et le fichier des taux pour que le code reste compréhensible.</p>
+    <p>J'ai aussi rencontré le problème de l'API : elle peut ne pas répondre ou être bloquée par le navigateur. Pour éviter que l'application ne tombe en panne, je garde des taux fixes dans le projet. La conversion fonctionne donc même sans connexion.</p>
+    <p>Pour finir, j'ai utilisé le contrôle TypeScript et le build Vite. La commande <code>npm run build</code> vérifie que le code est correct et prépare la version de production.</p>
+  </section>
+</body>
+</html>
