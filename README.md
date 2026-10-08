@@ -68,7 +68,7 @@ Cette commande lance le controle TypeScript puis genere la version de production
 
 - `src/components/CurrencyConverter.vue` : interface et logique du convertisseur.
 - `src/data/taux.ts` : devises et taux de secours.
-- `docs/compte-rendu-convertisseur.pdf` : compte rendu avec captures d'ecran.
+- `docs/compte-rendu-convertisseur.docx` : compte rendu Word avec captures d'ecran.
 
 ## Git
 
