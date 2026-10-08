@@ -32,11 +32,44 @@ npm install
 ### Compile and Hot-Reload for Development
 
 ```sh
+# Currency Converter
+
+Convertisseur de devises realise avec Vue 3, TypeScript et Vite. L'interface reprend la maquette du sujet : deux devises, un montant, un clavier numerique et une conversion USD vers EUR par defaut.
+
+## Fonctionnalites
+
+- Devises disponibles : EUR, USD, TND, GBP, JPY et CAD.
+- Conversion avec taux fixes de secours et tentative de recuperation via l'API Frankfurter.
+- Conversion automatique pendant la saisie et lors du changement de devise.
+- Clavier numerique a l'ecran et prise en charge du clavier physique.
+- Inversion des devises, bouton d'effacement et validation du montant.
+- Montant limite a 10 caracteres et un seul separateur decimal.
+
+## Installation et lancement
+
+Prérequis : Node.js 22 ou une version plus recente.
+
+```sh
+npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+L'application est ensuite disponible sur l'URL indiquee par Vite, generalement `http://localhost:5173/`.
+
+## Verification
 
 ```sh
 npm run build
 ```
+
+Cette commande lance le controle TypeScript puis genere la version de production dans `dist/`.
+
+## Organisation
+
+- `src/components/CurrencyConverter.vue` : interface et logique du convertisseur.
+- `src/data/taux.ts` : devises et taux de secours.
+- `docs/compte-rendu-convertisseur.pdf` : compte rendu avec captures d'ecran.
+
+## Git
+
+Le depot exclut les dependances et les fichiers de build via `.gitignore`. Les captures et le compte rendu sont conserves dans `docs/` pour accompagner le rendu.
