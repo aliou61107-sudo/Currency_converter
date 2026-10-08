@@ -1,0 +1,34 @@
+@import './base.css';
+
+#app { min-height: 100vh; }
+button, select { font: inherit; }
+button { cursor: pointer; }
+.app-shell { min-height: 100vh; padding: 40px 20px; background: radial-gradient(circle at 15% 15%, #e9f3c7 0, transparent 34%), var(--paper); }
+.converter { width: min(100%, 510px); margin: auto; padding: 28px 30px 22px; background: var(--panel); box-shadow: var(--shadow); border-radius: 22px; }
+.app-header, .amount-meta, .amount-line, .result-card, .app-footer { display: flex; align-items: center; }
+.app-header { gap: 12px; }
+.brand-mark { width: 40px; height: 40px; display: grid; place-items: center; background: var(--ink); color: var(--lime); border-radius: 11px; font: 700 23px Arial, sans-serif; }
+.eyebrow, .intro-label, .amount-meta, .result-label, .app-footer, label { font: 700 10px Arial, sans-serif; text-transform: uppercase; letter-spacing: .11em; }
+.eyebrow { color: var(--muted); margin-bottom: 3px; } h1 { font: 700 17px Arial, sans-serif; letter-spacing: -.04em; }
+.status-dot { width: 8px; height: 8px; margin-left: auto; border-radius: 50%; background: #82c44d; box-shadow: 0 0 0 5px #edf7df; }
+.intro { padding: 48px 0 30px; } .intro-label { color: var(--coral); margin-bottom: 14px; }
+h2 { font-size: clamp(38px, 9vw, 54px); line-height: .94; letter-spacing: -.06em; } h2 em { color: var(--coral); font-weight: 400; }
+.intro-copy { max-width: 275px; margin-top: 18px; color: var(--muted); font: 13px/1.5 Arial, sans-serif; }
+.conversion-panel { position: relative; } .currency-row { padding: 13px 16px; border: 1px solid var(--line); border-radius: 12px; background: #fbfcfa; }
+label { display: block; color: var(--muted); margin-bottom: 7px; } select { width: 100%; border: 0; outline: 0; color: var(--ink); background: transparent; font: 700 14px Arial, sans-serif; }
+.swap-button { position: absolute; z-index: 2; top: 56px; right: 18px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; gap: 1px; border: 4px solid var(--panel); border-radius: 50%; color: var(--ink); background: var(--lime); font: 700 16px Arial, sans-serif; }
+.swap-button span:first-child { transform: translateY(3px); } .swap-button span:last-child { transform: translateY(-3px); } .target-row { margin-top: 8px; }
+.amount-card { position: relative; margin-top: 22px; padding: 17px 18px 14px; border-radius: 14px; color: var(--ink); background: var(--lime); }
+.amount-meta { justify-content: space-between; color: #64722f; } .amount-line { gap: 10px; margin-top: 10px; } .currency-symbol { font-size: 29px; font-weight: 700; }
+.amount-line output { min-width: 0; font: 700 42px/1 Arial, sans-serif; letter-spacing: -.06em; overflow: hidden; }
+.clear-button { position: absolute; top: 13px; right: 15px; border: 0; color: #6c792d; background: none; font: 27px/1 Arial, sans-serif; }
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; } .keypad button { height: 43px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: #fff; font: 700 17px Arial, sans-serif; transition: transform .15s, background .15s; }
+.keypad button:hover { transform: translateY(-2px); background: #f1f5ed; } .keypad .muted-key { color: var(--muted); }
+.convert-button { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-top: 17px; padding: 16px 19px; border: 0; border-radius: 12px; color: #fff; background: var(--ink); font: 700 14px Arial, sans-serif; }
+.convert-button span:last-child { color: var(--lime); font-size: 22px; } .convert-button:hover { background: #26383e; }
+.validation-message { margin-top: 10px; color: #c94c39; font: 12px Arial, sans-serif; text-align: center; }
+.result-card { justify-content: space-between; min-height: 77px; margin-top: 14px; padding: 15px 18px; border: 1px solid var(--line); border-radius: 14px; background: #f7f8f5; }
+.result-card--active { border-color: var(--lime); background: #fbfdec; } .result-label { display: block; color: var(--muted); margin-bottom: 6px; }
+.result-card strong { font: 700 29px Arial, sans-serif; letter-spacing: -.05em; } .result-currency { align-self: flex-end; padding-bottom: 3px; font: 700 13px Arial, sans-serif; }
+.app-footer { justify-content: center; gap: 10px; margin-top: 22px; color: #9da7a1; font-size: 9px; }
+@media (max-width: 380px) { .app-shell { padding: 18px 12px; } .converter { padding: 22px 18px 18px; } .intro { padding: 35px 0 24px; } h2 { font-size: 39px; } }

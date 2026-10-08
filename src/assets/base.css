@@ -1,0 +1,22 @@
+:root {
+  --ink: #17242a;
+  --muted: #718086;
+  --paper: #f4f6f1;
+  --panel: #ffffff;
+  --line: #dfe5e1;
+  --lime: #d6f26a;
+  --coral: #ff765c;
+  --shadow: 0 22px 55px rgba(30, 49, 44, 0.13);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+body {
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
